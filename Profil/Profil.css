@@ -1,0 +1,125 @@
+/* ---- COUVERTURE ---- */
+#Couverture {
+    width: 900px;
+    margin: auto;
+    min-height: 400px;
+}
+
+/* Bloc contenant la couverture + photo + nom */
+#CouvertureContenu {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: larger;
+    padding-bottom: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Image bannière */
+#imagePolytech {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Photo de profil */
+#photoDeProfil {
+    width: 160px;
+    margin-top: -80px;
+    border-radius: 50%;
+    border: solid 4px white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+/* Options du profil */
+#OptionProfil {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#OptionProfil a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+#OptionProfil a:hover {
+    text-decoration: underline;
+}
+
+/* ---- CONTENEUR DES BLOCS ---- */
+#contenant {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- LISTE DES AMIS --- */
+#EspacesAmis {
+    flex: 1;
+    min-height: 400px;
+    color: #003366;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+#listeAmis {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Conteneur global des amis = colonne */
+#nomsEtPhotos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Chaque ami (Ami1, Ami2, ...) */
+#nomsEtPhotos > div {
+    display: flex;              /* image + nom sur la même ligne */
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.7);
+    transition: 0.2s ease-in-out;
+}
+
+#nomsEtPhotos > div:hover {
+    background: rgba(0,0,0,0.06);
+}
+
+/* Photo des amis */
+#nomsEtPhotos img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 2px white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Nom de l’ami */
+#nomsEtPhotos span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ---- ESPACE POSTS ---- */
+#box {
+    flex: 2.5;
+    min-height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    padding: 20px;
+}
