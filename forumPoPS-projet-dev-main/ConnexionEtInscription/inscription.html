@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="styleInscription.css">
+</head>
+<body>
+<header>
+<h1>SaclayInTouch</h1>
+</header>
+
+<div id="infosDeConnexion">
+  <form action="inscription.php">
+  <h2>S'inscrire</h2>
+  <div id="infoPersonnes">
+    
+    <input type="text" id="prénom" placeholder="Prénom">
+    <br>
+    <input type="text" id="nom" placeholder="Nom">
+    <br>
+    <input type="date" id="anneeDeNaissance">
+
+    <div id="composantePS">
+        <select id="composante">
+            <option>Composante Paris-Saclay</option>
+            <option>Polytech Paris-Saclay</option>
+            <option>CentraleSupélec</option>
+            <option>ENS Paris-Saclay</option>
+            <option>UVSQ</option>
+            <option>STAPS</option>
+            <option>Henri Moissan</option>
+        </select>
+    </div>
+
+  </div>
+  <div id="email">
+  <input type="email" id="email" name="email" placeholder="nom.prénom@universite-paris-saclay.fr">
+  </div>
+  <div id="mot de passe">
+  <input type="password" id="mdp" name="password" placeholder="Mot de passe" maxlength="12">
+  <br>
+  <input type="password" id="mdp" name="password" placeholder="Confirmer le Mot de passe" maxlength="12">
+
+  </div>
+  <br>
+  <input type="submit" id="soumettre">
+
+</form>
+</div>
+
+</body>
+</html>
