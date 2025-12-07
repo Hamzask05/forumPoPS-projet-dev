@@ -263,3 +263,41 @@ textarea {
 .date {
     color: var(--text-muted);
 }
+.timeline-container {
+    margin-top: 50px;
+}
+
+/* La colonne de gauche (Profil résumé) */
+#TimelineProfil {
+    flex: 1;            /* Prend 1 part de largeur */
+    text-align: center; /* Centre le texte et l'image */
+    padding: 20px;
+    background-color: transparent; 
+    
+    /* Optionnel : permet au profil de rester fixe quand on scrolle */
+    position: sticky;
+    top: 70px; 
+    height: fit-content;
+}
+
+/* L'image de profil ronde dans la timeline */
+.timeline-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rend l'image parfaitement ronde */
+    
+    /* Gestion des bordures et ombres avec les variables */
+    border: 5px solid var(--bg-card); 
+    box-shadow: 0 4px 15px var(--shadow-color);
+    
+    object-fit: cover; /* Évite que l'image soit écrasée */
+    margin-bottom: 15px;
+}
+
+/* Le nom sous la photo */
+.timeline-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-secondary); /* Utilise le bleu (ou bleu clair en mode sombre) */
+    margin: 0;
+}
