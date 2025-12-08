@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="auto">
+
+<head>
+  <meta charset="utf-8">
+  <title>Timeline - SaclayInTouch</title>
+  <link rel="stylesheet" href="Profil.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../assets/js/color-modes.js"></script>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SaclayInTouch</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+        aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+          <li class="nav-item">
+            <a class="nav-link" href="Profil.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Timeline</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="contenant" class="timeline-container">
+
+    <div id="TimelineProfil">
+      <div class="profil-summary">
+        <img src="photoDeProfil.jpeg" class="timeline-photo" alt="Photo de Profil">
+        <h2 class="timeline-name">Hamza Skali</h2>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="posts">
+        <textarea placeholder="Quoi de neuf ?"></textarea>
+        <input id="postBouton" type="submit" value="Publier">
+      </div>
+
+      <div id="barrePost">
+        <div class="post">
+          <img src="PhotoAmis/PhotoMehdi.jpeg" class="photoAmiPost" alt="Photo Ami">
+          <div>
+            <div class="nomUtilisateur">Mehdi Serraj</div>
+            Ceci est un exemple de post sur la timeline. Le style est maintenant 100% dans le CSS !
+            <br /> <br />
+            <a href="#">J'aime</a> . <a href="#">Commentaire</a> . <span class="date">Aujourd'hui</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>
