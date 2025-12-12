@@ -1,0 +1,188 @@
+<?php 
+session_start();
+
+include("../ConnexionEtInscription/connexionDB.php");
+include("../ConnexionEtInscription/loginDB.php");
+include("user.php");
+
+//print_r($_SESSION);
+if(isset($_SESSION["saclay_userid"])){
+  
+  $id=$_SESSION["saclay_userid"];
+  $login = new LoginDB();
+  $result=$login->check_login($id);
+  if($result){
+    $user = new User();
+    $user_data= $user->get_data($id);
+    if(!$user_data){
+          header(header: "Location: ../ConnexionEtinscription/connexion.php");
+          die;
+
+    }
+
+  } else{
+    header(header: "Location: ../ConnexionEtinscription/connexion.php");
+    die;
+  }
+
+
+  print_r($user_data);
+
+}
+
+
+
+?>
+
+
+
+<!doctype html>
+<html lang="fr" data-bs-theme="auto">
+
+<head>
+  <meta charset="utf-8">
+  <title>Profil</title>
+  <link rel="stylesheet" href="Profil.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+  <meta name="generator" content="Astro v5.13.2" />
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars/" />
+  <script src="../assets/js/color-modes.js"></script>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta name="theme-color" content="#712cf9" />
+  <link href="navbars.css" rel="stylesheet" />
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<body>
+  <header>
+  </header>
+  <!--Source du code de base de la navbar: Bootstrap-->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SaclayInTouch</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+        aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Profile</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="timeline.html">Timeline</a></li>
+          <li class="nav-item">
+            <a href="../ConnexionEtInscription/deconnexion.php" class="nav-link" aria-disabled="true">Déconnexion</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <!--Fin du code de la nav-->
+
+  <!--Couverture et Profil-->
+  <div id="Couverture">
+    <div id="CouvertureContenu">
+      <img src="../Images/PolytechParisSaclay.jpeg" id="imagePolytech" alt="Photo de couverture Polytech Paris-Saclay">
+      <img src="photoDeProfil.jpeg" id="photoDeProfil" alt="Photo de Profil">
+      <br>
+      <?php echo $user_data['prenom']." ".$user_data['nom']?>  
+        <!--Ci dessus on récupère le nom et le prénom de manière automatique dépendamment de l'utilisateur connecté-->
+
+      <br>
+      <div id="OptionProfil">
+        <a href="">À propos</a> <a href="">Amis</a> <a href="">Paramètres</a>
+      </div>
+    </div>
+    <!--Liste des Amis, écrire un post et voir les posts-->
+
+    <div id="contenant">
+
+      <!--Liste des Amis-->
+
+      <div id="EspacesAmis">
+        <div id="listeAmis">
+          Amis<br>
+          <div id="nomsEtPhotos">
+            <div id="Ami1">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" id="photoAmi1">
+              <span id="ami2">Mehdi Serraj</span>
+            </div>
+            <div id="Ami2">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" id="photoAmi1">
+              <span id="ami2">Mehdi Serraj</span>
+            </div>
+            <div id="Ami3">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" id="photoAmi1">
+              <span id="ami3">Mehdi Serraj</span>
+            </div>
+            <div id="Ami4">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" id="photoAmi1">
+              <span id="ami4">Mehdi Serraj</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!--Post-->
+      <div id="box">
+        <div id="posts">
+          <textarea placeholder="Quoi de neuf ?"></textarea>
+          <input id="postBouton" type="submit" value="Publier">
+          <br>
+        </div>
+        <!--Posts-->
+        <div id="barrePost">
+          
+          <div class="post">
+            <div class="post-image">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" class="photoAmiPost" alt="Photo Ami">
+            </div>
+            <div class="postContent">
+              <div class="nomUtilisateur">Premier Ami</div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              <br/> <br/>
+              <a href="#">J'aime</a> . <a href="#">Commentaire</a> . <span class="date">Décembre 6 2025</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <div class="post-image">
+              <img src="PhotoAmis/PhotoMehdi.jpeg" class="photoAmiPost" alt="Photo Ami">
+            </div>
+            <div class="postContent">
+              <div class="nomUtilisateur">Deuxième Ami</div>
+              Hamza Skali awal ultra fl maghrib GREEN BOYS TALMOUT 
+              <br/> <br/>
+              <a href="#">J'aime</a> . <a href="#">Commentaire</a> . <span class="date">Décembre 7 2025</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>
