@@ -1,0 +1,307 @@
+/* =========================================
+   1. DÉFINITION DES VARIABLES (THÈME CLAIR)
+   ========================================= */
+:root {
+    --bg-body: #f0f2f5;       /* Gris très clair pour le fond de page */
+    --bg-card: #ffffff;       /* Blanc pour les blocs */
+    --bg-hover: rgba(0,0,0,0.06);
+    --text-main: #000000;     /* Texte principal */
+    --text-secondary: #003366; /* Bleu foncé (noms, liens) */
+    --text-muted: #65676b;    /* Gris pour les dates */
+    --border-color: #ddd;
+    --shadow-color: rgba(0,0,0,0.15);
+    --input-bg: #f0f2f5;
+    --btn-bg: #405d9b;
+    --btn-text: #ffffff;
+}
+
+/* =========================================
+   2. DÉFINITION DU MODE SOMBRE
+   Detecte si l'appareil est en mode sombre
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #18191a;       /* Fond très sombre (style Facebook Dark) */
+        --bg-card: #242526;       /* Fond des cartes un peu plus clair */
+        --bg-hover: rgba(255,255,255,0.1);
+        --text-main: #e4e6eb;     /* Blanc cassé pour le texte */
+        --text-secondary: #5aa7ff; /* Bleu plus clair pour être lisible sur fond noir */
+        --text-muted: #b0b3b8;
+        --border-color: #3e4042;
+        --shadow-color: rgba(0,0,0,0.5);
+        --input-bg: #3a3b3c;
+    }
+}
+
+/* Optionnel : Si vous utilisez le bouton toggle de Bootstrap, 
+   ceci force le mode sombre quand l'attribut est présent */
+[data-bs-theme="dark"] {
+    --bg-body: #18191a;
+    --bg-card: #242526;
+    --bg-hover: rgba(255,255,255,0.1);
+    --text-main: #e4e6eb;
+    --text-secondary: #5aa7ff;
+    --text-muted: #b0b3b8;
+    --border-color: #3e4042;
+    --shadow-color: rgba(0,0,0,0.5);
+    --input-bg: #3a3b3c;
+}
+
+/* =========================================
+   3. VOTRE CSS MODIFIÉ (UTILISATION DES VARS)
+   ========================================= */
+
+body {
+    background-color: var(--bg-body); /* Ajout pour colorer le fond de la page entière */
+    color: var(--text-main);
+    transition: background-color 0.3s, color 0.3s; /* Transition douce entre les modes */
+}
+
+/* ---- COUVERTURE ---- */
+#Couverture {
+    width: 900px;
+    margin: auto;
+    min-height: 400px;
+}
+
+#CouvertureContenu {
+    background-color: var(--bg-card); /* Utilisation de variable */
+    text-align: center;
+    color: var(--text-main);          /* Utilisation de variable */
+    font-size: larger;
+    padding-bottom: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+#imagePolytech {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+}
+
+#photoDeProfil {
+    width: 160px;
+    margin-top: -80px;
+    border-radius: 50%;
+    border: solid 4px var(--bg-card); /* La bordure suit la couleur de la carte */
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#OptionProfil {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#OptionProfil a {
+    text-decoration: none;
+    color: var(--text-secondary); /* Utilisation de variable */
+    font-weight: bold;
+}
+
+#OptionProfil a:hover {
+    text-decoration: underline;
+}
+
+/* ---- CONTENEUR DES BLOCS ---- */
+#contenant {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- LISTE DES AMIS --- */
+#EspacesAmis {
+    flex: 1;
+    min-height: 400px;
+    color: var(--text-secondary);
+    padding: 15px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+#listeAmis {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+#nomsEtPhotos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#nomsEtPhotos > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* On gère la transparence ou la couleur ici */
+    background: transparent; 
+    border: 1px solid transparent;
+    transition: 0.2s ease-in-out;
+    color: var(--text-main);
+}
+
+#nomsEtPhotos > div:hover {
+    background: var(--bg-hover);
+}
+
+#nomsEtPhotos img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 2px var(--bg-card);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+#nomsEtPhotos span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ---- ESPACE POSTS ---- */
+#box {
+    flex: 2.5;
+    min-height: 400px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    padding: 20px;
+}
+
+#posts {
+    border: solid thin var(--border-color);
+    padding: 10px;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    display: flex;             
+    flex-direction: column;    /* On empile : Textarea en haut, Bouton en bas */
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    font-family: tahoma;
+    font-size: 14px;
+    height: 90px;
+    background-color: var(--input-bg); /* Fond du champ texte */
+    color: var(--text-main);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#postBouton {
+   /* -- NOUVEAU : On dit au bouton de se caler à la FIN (droite) -- */
+    align-self: flex-end; 
+
+    
+    background-color: var(--btn-bg);
+    border: none;
+    color: var(--btn-text);
+    padding: 6px 12px; 
+    font-size: 14px; 
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto; /* Juste pour être sûr qu'il ne prenne pas toute la largeur */
+}
+
+
+#postBouton:hover {
+    opacity: 0.9;
+}
+
+/*-- Posts deja envoye --*/
+
+/* Le conteneur global des posts */
+#barrePost {
+    margin-top: 20px;
+    background-color: transparent; /* On laisse transparent pour voir le fond des posts */
+}
+
+/* CHAQUE POST INDIVIDUEL (C'est ici qu'on utilise une CLASSE .post) */
+.post {
+    background-color: var(--bg-card); /* Utilise la variable couleur de fond */
+    padding: 15px;
+    font-size: 13px;
+    display: flex;       /* Garde l'image à gauche et le texte à droite */
+    border-radius: 8px;
+    margin-bottom: 20px; /* IMPORTANT : Crée l'espace entre le post 1 et le 2 */
+    box-shadow: 0 1px 3px var(--shadow-color);
+    color: var(--text-main);
+}
+
+/* La photo de l'ami dans le post */
+.photoAmiPost {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px; /* Espace entre photo et texte */
+}
+
+/* Le nom de l'utilisateur */
+.nomUtilisateur {
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* La date */
+.date {
+    color: var(--text-muted);
+}
+.timeline-container {
+    margin-top: 50px;
+}
+
+/* La colonne de gauche (Profil résumé) */
+#TimelineProfil {
+    flex: 1;            /* Prend 1 part de largeur */
+    text-align: center; /* Centre le texte et l'image */
+    padding: 20px;
+    background-color: transparent; 
+    
+    /* Optionnel : permet au profil de rester fixe quand on scrolle */
+    position: sticky;
+    top: 70px; 
+    height: fit-content;
+   
+}
+#timelinename{
+    text-decoration: none;
+}
+
+/* L'image de profil ronde dans la timeline */
+.timeline-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rend l'image parfaitement ronde */
+    
+    /* Gestion des bordures et ombres avec les variables */
+    border: 5px solid var(--bg-card); 
+    box-shadow: 0 4px 15px var(--shadow-color);
+    
+    object-fit: cover; /* Évite que l'image soit écrasée */
+    margin-bottom: 15px;
+}
+
+/* Le nom sous la photo */
+.timeline-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-secondary); /* Utilise le bleu (ou bleu clair en mode sombre) */
+    margin: 0;
+}
