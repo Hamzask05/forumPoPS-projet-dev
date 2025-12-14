@@ -1,0 +1,23 @@
+/* === Espace autour du contenu === */
+body {
+  padding-bottom: 20px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* gris clair pour tout le fond, neutre */
+}
+
+/* === Navbar === */
+.navbar {
+  margin-bottom: 0px; /* espace sous la navbar */
+}
+
+/* === Bouton personnalisé violet === */
+.btn-bd-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #712cf9;
+  --bs-btn-border-color: #712cf9;
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
