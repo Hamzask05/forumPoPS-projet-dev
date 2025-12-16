@@ -1,0 +1,534 @@
+/* 
+   1. DÉFINITION DES VARIABLES (THÈME CLAIR)
+  */
+:root {
+    --bg-body: #f0f2f5;
+    /* Gris très clair pour le fond de page */
+    --bg-card: #ffffff;
+    /* Blanc pour les blocs */
+    --bg-hover: rgba(0, 0, 0, 0.06);
+    --text-main: #000000;
+    /* Texte principal */
+    --text-secondary: #003366;
+    /* Bleu foncé (noms, liens) */
+    --text-muted: #65676b;
+    /* Gris pour les dates */
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --input-bg: #f0f2f5;
+    --btn-bg: #405d9b;
+    --btn-text: #ffffff;
+}
+
+/* 
+   2. DÉFINITION DU MODE SOMBRE
+   Detecte si l'appareil est en mode sombre
+  */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #18191a;
+        /* Fond très sombre (style Facebook Dark) */
+        --bg-card: #242526;
+        /* Fond des cartes un peu plus clair */
+        --bg-hover: rgba(255, 255, 255, 0.1);
+        --text-main: #e4e6eb;
+        /* Blanc cassé pour le texte */
+        --text-secondary: #5aa7ff;
+        /* Bleu plus clair pour être lisible sur fond noir */
+        --text-muted: #b0b3b8;
+        --border-color: #3e4042;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+        --input-bg: #3a3b3c;
+    }
+}
+
+/* Optionnel : Si vous utilisez le bouton toggle de Bootstrap, 
+   ceci force le mode sombre quand l'attribut est présent */
+[data-bs-theme="dark"] {
+    --bg-body: #18191a;
+    --bg-card: #242526;
+    --bg-hover: rgba(255, 255, 255, 0.1);
+    --text-main: #e4e6eb;
+    --text-secondary: #5aa7ff;
+    --text-muted: #b0b3b8;
+    --border-color: #3e4042;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --input-bg: #3a3b3c;
+}
+
+/* 
+   3. VOTRE CSS MODIFIÉ (UTILISATION DES VARS)
+   */
+
+body {
+    background-color: var(--bg-body);
+    /* Ajout pour colorer le fond de la page entière */
+    color: var(--text-main);
+    transition: background-color 0.3s, color 0.3s;
+    /* Transition douce entre les modes */
+}
+
+/* ---- COUVERTURE ---- */
+#Couverture {
+    width: 900px;
+    margin: auto;
+    min-height: 400px;
+}
+
+#CouvertureContenu {
+    background-color: var(--bg-card);
+    /* Utilisation de variable */
+    text-align: center;
+    color: var(--text-main);
+    /* Utilisation de variable */
+    font-size: larger;
+    padding-bottom: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+#imagePolytech {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+}
+
+#photoDeProfil {
+    width: 160px;
+    margin-top: -80px;
+    border-radius: 50%;
+    border: solid 4px var(--bg-card);
+    /* La bordure suit la couleur de la carte */
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#OptionProfil {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#OptionProfil a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    /* Utilisation de variable */
+    font-weight: bold;
+}
+
+#OptionProfil a:hover {
+    text-decoration: underline;
+}
+
+/* ---- CONTENEUR DES BLOCS ---- */
+#contenant {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- LISTE DES AMIS --- */
+#EspacesAmis {
+    flex: 1;
+    min-height: 400px;
+    color: var(--text-secondary);
+    padding: 15px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+#listeAmis {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+#nomsEtPhotos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#nomsEtPhotos>div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* On gère la transparence ou la couleur ici */
+    background: transparent;
+    border: 1px solid transparent;
+    transition: 0.2s ease-in-out;
+    color: var(--text-main);
+}
+
+#nomsEtPhotos>div:hover {
+    background: var(--bg-hover);
+}
+
+#nomsEtPhotos img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 2px var(--bg-card);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+#nomsEtPhotos span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ---- ESPACE POSTS ---- */
+#box {
+    flex: 2.5;
+    min-height: 400px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    padding: 20px;
+}
+
+#posts {
+    border: solid thin var(--border-color);
+    padding: 10px;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    /* On empile : Textarea en haut, Bouton en bas */
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    font-family: tahoma;
+    font-size: 14px;
+    height: 90px;
+    background-color: var(--input-bg);
+    /* Fond du champ texte */
+    color: var(--text-main);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#postBouton {
+    /* -- NOUVEAU : On dit au bouton de se caler à la FIN (droite) -- */
+    align-self: flex-end;
+
+
+    background-color: var(--btn-bg);
+    border: none;
+    color: var(--btn-text);
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+    /* Juste pour être sûr qu'il ne prenne pas toute la largeur */
+}
+
+
+#postBouton:hover {
+    opacity: 0.9;
+}
+
+/*-- Posts deja envoye --*/
+
+/* Le conteneur global des posts */
+#barrePost {
+    margin-top: 20px;
+    background-color: transparent;
+    /* On laisse transparent pour voir le fond des posts */
+}
+
+/* CHAQUE POST INDIVIDUEL (C'est ici qu'on utilise une CLASSE .post) */
+.post {
+    background-color: var(--bg-card);
+    /* Utilise la variable couleur de fond */
+    padding: 15px;
+    font-size: 13px;
+    display: flex;
+    /* Garde l'image à gauche et le texte à droite */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* IMPORTANT : Crée l'espace entre le post 1 et le 2 */
+    box-shadow: 0 1px 3px var(--shadow-color);
+    color: var(--text-main);
+}
+
+/* La photo de l'ami dans le post */
+.photoAmiPost {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+    /* Espace entre photo et texte */
+}
+
+/* Le nom de l'utilisateur */
+.nomUtilisateur {
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* La date */
+.date {
+    color: var(--text-muted);
+}
+
+.timeline-container {
+    margin-top: 50px;
+}
+
+/* La colonne de gauche (Profil résumé) */
+#TimelineProfil {
+    flex: 1;
+    /* Prend 1 part de largeur */
+    text-align: center;
+    /* Centre le texte et l'image */
+    padding: 20px;
+    background-color: transparent;
+
+    /* Optionnel : permet au profil de rester fixe quand on scrolle */
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+
+}
+
+#timelinename {
+    text-decoration: none;
+}
+
+/* L'image de profil ronde dans la timeline */
+.timeline-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* Rend l'image parfaitement ronde */
+
+    /* Gestion des bordures et ombres avec les variables */
+    border: 5px solid var(--bg-card);
+    box-shadow: 0 4px 15px var(--shadow-color);
+
+    object-fit: cover;
+    /* Évite que l'image soit écrasée */
+    margin-bottom: 15px;
+}
+
+/* Le nom sous la photo */
+.timeline-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    /* Utilise le bleu (ou bleu clair en mode sombre) */
+    margin: 0;
+}
+
+
+/* --- ZONE DE PRÉVISUALISATION (IMAGE) --- */
+
+#ImageCharg {
+    flex: 2;
+    /* Prend plus d'espace que la colonne de gauche */
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    padding: 30px;
+
+    /* Centrage parfait du contenu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Petit effet de transition */
+    transition: transform 0.2s ease;
+    min-height: 400px;
+    /* Hauteur minimale pour l'équilibre */
+}
+
+/* Style de l'image elle-même */
+#ImageCharg img {
+    width: 250px;
+    /* Taille fixe pour l'aperçu */
+    height: 250px;
+    object-fit: cover;
+    /* Coupe l'image pour qu'elle ne soit pas déformée */
+    border-radius: 50%;
+    /* Cercle parfait (standard moderne pour profils) */
+
+    /* Bordure et Ombre pour le relief */
+    border: 5px solid var(--bg-body);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol de l'image */
+#ImageCharg img:hover {
+    transform: scale(1.05);
+    /* Léger zoom */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--text-secondary);
+    /* La bordure prend la couleur secondaire */
+}
+
+/* --- AMÉLIORATION DU FORMULAIRE (GAUCHE) --- */
+/* Pour que le bouton et l'input soient aussi jolis que l'image */
+
+#TimelineProfil {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Style moderne pour l'input fichier */
+input[type="file"] {
+    padding: 10px;
+    background: var(--bg-body);
+    border-radius: 5px;
+    width: 100%;
+    color: var(--text-main);
+}
+
+/* Bouton de validation harmonisé */
+#post_button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+#post_button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* --- STYLES POUR L'UPLOAD ET LES IMAGES --- */
+
+/* 1. Styliser le bouton d'upload (input type file) */
+#postPhoto {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    /* Utilise la variable pour s'adapter au mode sombre */
+}
+
+/* Ceci cible la partie bouton "Choisir un fichier" du navigateur */
+#postPhoto::file-selector-button {
+    background-color: var(--input-bg);
+    /* S'adapte au thème (gris clair ou gris foncé) */
+    color: var(--text-main);
+    /* Texte noir ou blanc selon le thème */
+    border: 1px solid var(--border-color);
+    /* Légère bordure */
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+#postPhoto::file-selector-button:hover {
+    background-color: var(--bg-hover);
+    /* Effet de survol cohérent avec le reste du site */
+}
+
+/* 2. Standardiser la taille des images dans les posts */
+.postImageContent {
+    width: 100%;
+    /* Prend toute la largeur disponible du post */
+    max-height: 500px;
+    /* Empêche l'image de prendre tout l'écran en hauteur */
+    object-fit: cover;
+    /* Recadre l'image proprement si elle est trop haute */
+    border-radius: 8px;
+    /* Coins arrondis pour un look moderne */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Correction de l'espace ici */
+    border: 1px solid var(--border-color);
+    /* Bordure qui s'adapte au thème */
+    display: block;
+}
+
+
+
+/* --- NOUVEAU CONTENEUR BOUTONS --- */
+#boutonPost {
+    display: flex;
+    /* Active l'alignement côte à côte */
+    align-items: center;
+    /* Centre verticalement les éléments */
+    justify-content: space-between;
+    /* Répartit l'espace */
+    gap: 15px;
+    /* Espace entre le choix de fichier et le bouton */
+    margin-top: 10px;
+    /* Espace par rapport au textarea */
+}
+
+/* --- MISE À JOUR INPUT FICHIER --- */
+#postPhoto {
+    /* On enlève le width: 100% précédent pour qu'il laisse de la place */
+    width: auto;
+    flex-grow: 1;
+    /* Il prendra tout l'espace disponible restant */
+    margin: 0;
+    /* On retire les marges car gérées par le gap du parent */
+    color: var(--text-muted);
+}
+
+/* --- MISE À JOUR BOUTON PUBLIER --- */
+#postBouton {
+    align-self: center;
+    /* S'assure qu'il est bien centré verticalement */
+    margin: 0;
+    white-space: nowrap;
+    /* Empêche le texte "Publier" de se couper */
+}
+
+/* Pour les commentaires */
+.single-post-container {
+    width: 100%;
+    max-width: 600px;
+    /* Largeur comme sur la timeline */
+    margin: 20px auto;
+    /* Centré horizontalement */
+    background-color: white;
+    /* Fond blanc si ton body est gris */
+    border-radius: 8px;
+}
+/* Exemple : Le conteneur qui tient les 2 colonnes */
+#contenant {
+    display: flex;
+    /* C'est CETTE ligne qui empêche la barre Amis de s'étirer */
+    align-items: flex-start; 
+    gap: 20px;
+}

@@ -1,0 +1,142 @@
+/* ---------- RESET SIMPLE ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #6A0032 0%, #8C0043 40%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  
+}
+
+/* ---------- HEADER ---------- */
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* ---------- CONTENEUR FORMULAIRE ---------- */
+#infosDeConnexion {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  width: 380px;
+}
+
+#infosDeConnexion h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* ---------- INPUTS TEXT ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.85);
+  color: #333;
+  font-size: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255,255,255,0.6);
+  transform: scale(1.02);
+}
+
+/* ---------- SELECT ---------- */
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ---------- BOUTON SOUMETTRE ---------- */
+#soumettre {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #6A0032;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#soumettre:hover {
+  background: #a3002a;
+  transform: scale(1.03);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+  #infosDeConnexion {
+    width: 90%;
+    padding: 30px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+}
+/* ---------- LIEN INSCRIPTION (Pas encore de compte ?) ---------- */
+
+/* 1. On nettoie le lien (la balise <a>) */
+a[href="connexion.php"] {
+  text-decoration: none; /* Enlève le souligné bleu moche par défaut */
+  display: block;        /* Prend toute la largeur disponible */
+  width: 100%;
+  margin-top: 15px;      /* Espace entre le bouton connexion et ce lien */
+}
+
+/* 2. On style la div intérieure */
+#dejaUnCompte {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75); /* Blanc légèrement transparent pour la hiérarchie */
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  
+  /* Optionnel : petite bordure très subtile pour délimiter */
+  border: 1px solid transparent;
+}
+
+/* 3. L'effet au survol (Hover) */
+#dejaUnCompte:hover {
+  color: #ffffff;       /* Devient blanc pur */
+  background: rgba(255, 255, 255, 0.1); /* Fond très léger à l'approche de la souris */
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px); /* Petit effet de lévitation sympa */
+  cursor: pointer;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
